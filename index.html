@@ -1,166 +1,399 @@
-
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <title>サンプル</title>
-    <meta charset="utf-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>home空き教室はどこ？</title>
+        <link href = "style.css" rel ="stylesheet">
+    </head>
+    <body>
+        <!--header始まり-->
+        <header>
+            <div class = "logo">
+                <a href = "index.html">
+                    <img src = "images/logo.png" alt = "空き教室はどこ？">
+                </a>
+            </div>
+            <nav>
+                <ul class = "navi">
+                    <li style ="font-size:50px; "><a href = "index.html">Home</a></li>
+                </ul>
+            </nav>
+            <style>
+                input{
+                    width: 100px;
+                    height: 70px;
+                }
+                select{
+                    width: 150px;
+                    height: 70px;
+                }
+            </style>
+        </header>
+        <br>
+        <!--header終わり-->
+        <!--wrap始まり-->
+        <div id = "wrap">
+        <p3>
+            <script>
+            function settoday(){
+                var today = new Date() ;
+                var nowtime= ("0"+today.getHours()).slice(-2) +":"+("0"+today.getMinutes()).slice(-2);
+                var weekday1 = [ "Sun", "Mon1", "Tue1", "Wed1", "Thu1", "Fri1", "Sat1" ] ;
+                var weekday2 = [ "Sun", "Mon2", "Tue2", "Wed2", "Thu2", "Fri2", "Sat2" ] ;
+                var weekday3 = [ "Sun", "Mon3", "Tue3", "Wed3", "Thu3", "Fri3", "Sat3" ] ;
+                var weekday4 = [ "Sun", "Mon4", "Tue4", "Wed4", "Thu4", "Fri4", "Sat4" ] ;
+                var weekday5 = [ "Sun", "Mon5", "Tue5", "Wed5", "Thu5", "Fri5", "Sat5" ] ;
 
-    <style>
-        div#paging
-        {
-            text-align: center;
-            /* スクロールに対してページングボックスの位置を固定 */
-            position: fixed;
-            /* 位置を指定 */
-            bottom: 0;
-            right:45%;
-        }
+                //リスト1
+                var startlist1 = [ "", "09:20", "09:20", "09:20", "09:20", "09:20", "09:20" ]; 
+                var endlist1 = [ "", "11:00", "11:00", "11:00", "11:00", "11:00", "23:00" ];
+                
+                //リスト2
+                var startlist2 = [ "", "11:10", "11:10", "11:10", "11:10", "11:10", "11:10" ]; 
+                var endlist2 = [ "", "12:50", "12:50", "12:50", "12:50", "12:50", "12:50" ];
+                
+                //リスト3
+                var startlist3 = [ "", "13:40", "13:40", "13:40", "13:40", "13:40", "13:40" ]; 
+                var endlist3 = [ "", "15:20", "15:20", "15:20", "15:20", "15:20", "15:20" ];
 
-        div#pagingbox{
-            background: #FFF;
-        }
+                //リスト4
+                var startlist4 = [ "", "15:30", "15:30", "15:30", "15:30", "15:30", "15:30" ]; 
+                var endlist4 = [ "", "17:10", "17:10", "17:10", "17:10", "17:10", "17:10" ];
 
-        th{
-            /* ヘッダ背景塗りつぶし */
-            background: #eee;
-        }
-        th,td {
-            /* 枠線を1本線指定 */
-            border: solid 1px;
-            width:auto;
-        }
+                //リスト5
+                var startlist5 = [ "", "17:20", "17:20", "17:20", "17:20", "17:20", "17:20" ]; 
+                var endlist5 = [ "", "19:00", "19:00", "19:00", "19:00", "19:00", "19:00" ];
+                
+                var starttime="00:00";
+                var endtime="24:00";
+                //リスト1のチェック
+                if(startlist1[today.getDay()] != ""){
+                    starttime=startlist1[today.getDay()];
+                }
+                if(endlist1[today.getDay()] != ""){
+                    endtime=endlist1[today.getDay()];
+                }
+                if ( nowtime >= starttime&& nowtime <= endtime){
+                    document.getElementById(weekday1[today.getDay()]).style.display="block";
+                    document.getElementById("out").style.display="none";
+                }
+                
+                starttime="00:00";
+                endtime="24:00";
+                //リスト2のチェック
+                if(startlist2[today.getDay()] != ""){
+                    starttime=startlist2[today.getDay()];
+                }
+                if(endlist2[today.getDay()] != ""){
+                    endtime=endlist2[today.getDay()];
+                }
+                if ( nowtime >= starttime&& nowtime <= endtime){
+                    document.getElementById(weekday2[today.getDay()]).style.display="block";
+                    document.getElementById("out").style.display="none";
+                }
+                
+                starttime="00:00";
+                endtime="24:00";
+                //リスト3のチェック
+                if(startlist3[today.getDay()] != ""){
+                    starttime=startlist3[today.getDay()];
+                }
+                if(endlist3[today.getDay()] != ""){
+                    endtime=endlist3[today.getDay()];
+                }
+                if ( nowtime >= starttime&& nowtime <= endtime){
+                    document.getElementById(weekday3[today.getDay()]).style.display="block";
+                    document.getElementById("out").style.display="none";
+                }
+                
+                starttime="00:00";
+                endtime="24:00";
+                //リスト4のチェック
+                if(startlist4[today.getDay()] != ""){
+                    starttime=startlist4[today.getDay()];
+                }
+                if(endlist4[today.getDay()] != ""){
+                    endtime=endlist4[today.getDay()];
+                }
+                if ( nowtime >= starttime&& nowtime <= endtime){
+                    document.getElementById(weekday4[today.getDay()]).style.display="block";
+                    document.getElementById("out").style.display="none";
+                }
+                
+                starttime="00:00";
+                endtime="24:00";
+                //リスト5のチェック
+                if(startlist5[today.getDay()] != ""){
+                    starttime=startlist5[today.getDay()];
+                }
+                if(endlist5[today.getDay()] != ""){
+                    endtime=endlist5[today.getDay()];
+                }
+                if ( nowtime >= starttime&& nowtime <= endtime){
+                    document.getElementById(weekday5[today.getDay()]).style.display="block";
+                    document.getElementById("out").style.display="none";
+                }
+            }
+            </script>
+            
+            <body onload="settoday();" style = "margin-left: 30px;font-size: 60px; line-height:1.25;">
+                <div id="out" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:block;">
+                    現在、授業時間ではありません。
+                </div>
+                <div id="Sun" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    本日授業はありません。
+                </div>
+                <div id="Mon1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl111.html">現在時刻から探す</a>
+                </div>
+                <div id="Mon2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl112.html">現在時刻から探す</a>
+                </div>
+                <div id="Mon3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl113.html">現在時刻から探す</a>
+                </div>
+                <div id="Mon4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl114.html">現在時刻から探す</a>
+                </div>
+                <div id="Mon5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl115.html">現在時刻から探す</a>
+                </div>
 
-        table{
-            /* 枠線を1本線指定 */
-            border: solid 1px;
-            border-collapse:  collapse;
-            white-space: nowrap;
-        }
+                <div id="Tue1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl121.html">現在時刻から探す</a>
+                </div>
+                <div id="Tue2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl122.html">現在時刻から探す</a>
+                </div>
+                <div id="Tue3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl123.html">現在時刻から探す</a>
+                </div>
+                <div id="Tue4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl124.html">現在時刻から探す</a>
+                </div>
+                <div id="Tue5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl125.html">現在時刻から探す</a>
+                </div>
+                
+                <div id="Wed1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl131.html">現在時刻から探す</a>
+                </div>
+                <div id="Wed2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl132.html">現在時刻から探す</a>
+                </div>
+                <div id="Wed3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl133.html">現在時刻から探す</a>
+                </div>
+                <div id="Wed4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl134.html">現在時刻から探す</a>
+                </div>
+                <div id="Wed5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl135.html">現在時刻から探す</a>
+                </div>
+                
+                <div id="Thu1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl141.html">現在時刻から探す</a>
+                </div>
+                <div id="Thu2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl142.html">現在時刻から探す</a>
+                </div>
+                <div id="Thu3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl143.html">現在時刻から探す</a>
+                </div>
+                <div id="Thu4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl144.html">現在時刻から探す</a>
+                </div>
+                <div id="Thu5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl145.html">現在時刻から探す</a>
+                </div>
+                
+                <div id="Fri1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl151.html">現在時刻から探す</a>
+                </div>
+                <div id="Fri2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl152.html">現在時刻から探す</a>
+                </div>
+                <div id="Fri3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl153.html">現在時刻から探す</a>
+                </div>
+                <div id="Fri4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl154.html">現在時刻から探す</a>
+                </div>
+                <div id="Fri5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl155.html">現在時刻から探す</a>
+                </div>
 
-        footer{
-            position: fixed;
-            width: 100%;
-            background-color: #C0C0C0;
-            padding: 15px 0;
-            bottom: 0; /*下に固定*/
-        }
-    </style>
-
-</head>
-
-
-
-
-<body>
-<!--テーブル生成位置-->
-<div id ='maintable'></div>
-
-
-
-<!--ページングボタン配置-->
-<footer>
-    <div id="paging">
-        <table>
+                <div id="Sat1" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl161.html">現在時刻から探す</a>
+                </div>
+                <div id="Sat2" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl162.html">現在時刻から探す</a>
+                </div>
+                <div id="Sat3" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl163.html">現在時刻から探す</a>
+                </div>
+                <div id="Sat4" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl164.html">現在時刻から探す</a>
+                </div>
+                <div id="Sat5" style="padding: 10px; width:95%; border: 1px solid #070152; border-radius: 10px; background-color: #99e9ff; display:none;">
+                    <a href = "Main/tbl165.html">現在時刻から探す</a>
+                </div>
+            </body>
+        </p3>
+        <p33>
+            <label for="quarter" style = "font-size: 65%">探索するクォーターを選択してください</label>
+            <br>
+            <select id="quarter">
+                <option value ="x"> ▽選択してください</option>
+                <option value ="第1Q">第1Q</option>
+                <option value ="第2Q">第2Q</option>
+            </select>
+            <div>
+                <input type="button" value="Check" id="checkButton">
+            </div>
+            <script>
+                function butotnClick(){
+                    var quarters = [ "q1", "q2" ];
+                    if (quarterSelect.value == "第1Q"){
+                        document.getElementById(quarters[0]).style.display="block";
+                        document.getElementById(quarters[1]).style.display="none";
+                    }
+                    else if (quarterSelect.value == "第2Q"){
+                        document.getElementById(quarters[1]).style.display="block";
+                        document.getElementById(quarters[0]).style.display="none";
+                    }            
+                }
+                let quarterSelect = document.getElementById('quarter');
+                quarterSelect.options[2].selected = true;
+                let checkButton = document.getElementById('checkButton');
+                checkButton.addEventListener('click', butotnClick);
+            </script>
+            <br>
+        </p33>
+        <p4 onload="settoday();" style = "margin:auto auto; font-size: 40px;">
+        <div id ="q1" style ="display:none;">
+            探したい時間帯をクリックしてください。
+            <table align="center" style = "line-height: 1;">
+            <tr >
+                <th >第1Q</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+            </tr>
             <tr>
-                <tb><button id="prevbtn" type="button"><</button></tb>
-                <tb>
-                    <span id="currentpage">currentpage</span>
-                    /
-                    <span id="lastpage">lastpage</span>
-                </tb>
-                <tb><button id="nextbtn" type="button">></button></tb>
+                <th>1</th>
+                <th><a href = "Main/tbl111.html">月 1</a></th>
+                <th><a href = "Main/tbl121.html">火 1</a></th>
+                <th><a href = "Main/tbl131.html">水 1</a></th>
+                <th><a href = "Main/tbl141.html">木 1</a></th>
+                <th><a href = "Main/tbl151.html">金 1</a></th>
+                <th><a href = "Main/tbl161.html">土 1</a></th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th><a href = "Main/tbl112.html">月 2</a></th>
+                <th><a href = "Main/tbl122.html">火 2</a></th>
+                <th><a href = "Main/tbl132.html">水 2</a></th>
+                <th><a href = "Main/tbl142.html">木 2</a></th>
+                <th><a href = "Main/tbl152.html">金 2</a></th>
+                <th><a href = "Main/tbl162.html">土 2</a></th>
+            </tr>
+            <tr>
+                <th>3</th>
+                <th><a href = "Main/tbl113.html">月 3</a></th>
+                <th><a href = "Main/tbl123.html">火 3</a></th>
+                <th><a href = "Main/tbl133.html">水 3</a></th>
+                <th><a href = "Main/tbl143.html">木 3</a></th>
+                <th><a href = "Main/tbl153.html">金 3</a></th>
+                <th><a href = "Main/tbl163.html">土 3</a></th>
+            </tr>
+            <tr>
+                <th>4</th>
+                <th><a href = "Main/tbl114.html">月 4</a></th>
+                <th><a href = "Main/tbl124.html">火 4</a></th>
+                <th><a href = "Main/tbl134.html">水 4</a></th>
+                <th><a href = "Main/tbl144.html">木 4</a></th>
+                <th><a href = "Main/tbl154.html">金 4</a></th>
+                <th><a href = "Main/tbl164.html">土 4</a></th>
+            </tr>
+            <tr>
+                <th>5</th>
+                <th><a href = "Main/tbl115.html">月 5</a></th>
+                <th><a href = "Main/tbl125.html">火 5</a></th>
+                <th><a href = "Main/tbl135.html">水 5</a></th>
+                <th><a href = "Main/tbl145.html">木 5</a></th>
+                <th><a href = "Main/tbl155.html">金 5</a></th>
+                <th></th>
             </tr>
         </table>
-    </div>
-</footer>
+        </div>
+        <div id ="q2" style = "display:none;">
+            探したい時間帯をクリックしてください。
+            <table align="center" style = "line-height: 1;">
+                <tr >
+                    <th >第2Q</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th><a href = "Main/tbl211.html">月 1</a></th>
+                    <th><a href = "Main/tbl221.html">火 1</a></th>
+                    <th><a href = "Main/tbl31.html">水 1</a></th>
+                    <th><a href = "Main/tbl241.html">木 1</a></th>
+                    <th><a href = "Main/tbl251.html">金 1</a></th>
+                    <th><a href = "Main/tbl261.html">土 1</a></th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th><a href = "Main/tbl212.html">月 2</a></th>
+                    <th><a href = "Main/tbl222.html">火 2</a></th>
+                    <th><a href = "Main/tbl232.html">水 2</a></th>
+                    <th><a href = "Main/tbl242.html">木 2</a></th>
+                    <th><a href = "Main/tb252.html">金 2</a></th>
+                    <th><a href = "Main/tbl262.html">土 2</a></th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th><a href = "Main/tbl213.html">月 3</a></th>
+                    <th><a href = "Main/tbl223.html">火 3</a></th>
+                    <th><a href = "Main/tbl233.html">水 3</a></th>
+                    <th><a href = "Main/tbl243.html">木 3</a></th>
+                    <th><a href = "Main/tbl253.html">金 3</a></th>
+                    <th><a href = "Main/tbl263.html">土 3</a></th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th><a href = "Main/tbl214.html">月 4</a></th>
+                    <th><a href = "Main/tbl224.html">火 4</a></th>
+                    <th><a href = "Main/tbl234.html">水 4</a></th>
+                    <th><a href = "Main/tbl244.html">木 4</a></th>
+                    <th><a href = "Main/tbl254.html">金 4</a></th>
+                    <th><a href = "Main/tbl264.html">土 4</a></th>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <th><a href = "Main/tbl215.html">月 5</a></th>
+                    <th><a href = "Main/tbl225.html">火 5</a></th>
+                    <th><a href = "Main/tbl235.html">水 5</a></th>
+                    <th><a href = "Main/tbl245.html">木 5</a></th>
+                    <th><a href = "Main/tbl255.html">金 5</a></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+        </p4>
+        </div><!--wrap終わり-->
 
-
-<script>
-    var json =[     //jsonサンプルデータ
-        {
-            "順位":1 ,"氏名":"<img src='test.png'>" , "本数":868
-        }
-        ,
-        {
-            "順位":2 ,"氏名":"野村克也" ,"本数":657
-        }
-        ,
-        {
-            "順位":3 ,"氏名":"門田博光" ,"本数":567
-        }
-        ,
-        {
-            "順位":4 ,"氏名":"山本浩二" ,"本数":536
-        }
-        ,
-        {
-            "順位":5 ,"氏名":"清原和博" ,"本数":525
-        }
-    ]
-
-    // table要素を生成
-    var table = document.createElement('table');
-
-    // ヘッダーを作成
-    var tr = document.createElement('tr');
-    for (key in json[0]) {
-        // th要素を生成
-        var th = document.createElement('th');
-        // th要素内にテキストを追加
-        th.textContent = key;
-        // th要素をtr要素の子要素に追加
-        tr.appendChild(th);
-    }
-    // tr要素をtable要素の子要素に追加
-    table.appendChild(tr);
-
-    // テーブル本体を作成
-    for (var i = 0; i < json.length; i++) {
-        // tr要素を生成
-        var tr = document.createElement('tr');
-        // th・td部分のループ
-        for (key in json[0]) {
-            // td要素を生成
-            var td = document.createElement('td');
-            // td要素内にテキストを追加
-            td.innerHTML = json[i][key];
-            // td要素をtr要素の子要素に追加
-            tr.appendChild(td);
-        }
-        // tr要素をtable要素の子要素に追加
-        table.appendChild(tr);
-    }
-    // 生成したtable要素を追加する
-    document.getElementById('maintable').appendChild(table);
-</script>
-
-
-<script>// ページング機能
-jQuery(function($) {
-    var page = 0;
-    var displayrows = 30;// １ページ当たり表示する行の数
-
-    function draw() {// ページの表示
-        $('#lastpage').html(Math.ceil(($('tr').size()-1)/displayrows));
-        $('#currentpage').html(page + 1);
-        $('tr').hide();
-        $('tr:first,tr:gt(' + page * displayrows + '):lt(' + displayrows + ')').show();// 変数を使用する場合は' +  + 'を忘れずに
-    }
-    $('#prevbtn').click(function() {// １ページ後進
-        if (page > 0) {
-            page--;
-            draw();
-        }
-    });
-    $('#nextbtn').click(function() {// １ページ前進
-        if (page < ($('tr').size() - 1) /displayrows - 1) {
-            page++;
-            draw();
-        }
-    });
-    draw();//初回表示
-});
-</script>
-</body>
+        <!--footer始まり-->
+        <footer></footer>
+        <!--footer終わり-->
+    </body>
 </html>
