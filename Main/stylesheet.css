@@ -54,7 +54,10 @@ body{
 }
 
 .logo{
-    max-height: 5%;
     /*コレ*/display: block;
     padding-right: 5vm;
+
+}
+img{
+    width: 100%;
 }
