@@ -220,7 +220,7 @@ function tbl(x){
     var top = document.getElementById('maintable');
     //homeへ帰るリンク
     //トップに説明を表示
-    top.innerHTML = '<a href="../index.html">Home</a></br><img src=\'top_img.png\' class=\'top_img\'>';
+    top.innerHTML = '<a href="../index.html">Home</a></br><img src=\'top_img_2.png\' class=\'top_img\'>';
     // 生成したtable要素を追加する
     document.getElementById('maintable').appendChild(table);
     document.title ='空き教室はどこ？';
