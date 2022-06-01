@@ -26,8 +26,9 @@ td {
 
 td,th {
     border-bottom: solid 4px #778ca3;
-    color: #5a9414;
+    color: #f5e8e8;
     border-spacing: 0px;
+    background-image: url("bg_2.png");
 }
 table{
     margin: auto;
@@ -37,6 +38,7 @@ table{
     font-size: clamp(10px,20vw,50px);
     border-collapse: collapse;
     font-family: "BIZ UDPゴシック";
+
 }
 a{
     font-family: "BIZ UDPゴシック";
@@ -46,4 +48,13 @@ a{
     max-width: 50%;
     /*コレ*/display: block;
     /*コレ*/margin: auto;
+}
+body{
+    background-image: url("bg_2.png");
+}
+
+.logo{
+    max-height: 5%;
+    /*コレ*/display: block;
+    padding-right: 5vm;
 }
